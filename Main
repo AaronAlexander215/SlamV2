@@ -1,5 +1,112 @@
 import pygame
+import timport pygame
 import time
+import math
+import card_images
+from utils import scale_image, blit_rotate_center, blit_text_center
+pygame.font.init()
+
+TWO_CLUBS = scale_image(pygame.image.load("images/2_of_clubs.png"), 0.3)
+TWO_DIAMONDS = scale_image(pygame.image.load("images/2_of_diamonds.png"), 0.3)
+TWO_SPADES = scale_image(pygame.image.load("images/2_of_spades.png"), 0.3)
+TWO_HEARTS = scale_image(pygame.image.load("images/2_of_hearts.png"), 0.3)
+
+THREE_CLUBS = scale_image(pygame.image.load("images/3_of_clubs.png"), 0.3)
+THREE_DIAMONDS = scale_image(pygame.image.load("images/3_of_diamonds.png"), 0.3)
+THREE_SPADES = scale_image(pygame.image.load("images/3_of_spades.png"), 0.3)
+THREE_HEARTS = scale_image(pygame.image.load("images/3_of_hearts.png"), 0.3)
+
+FOUR_CLUBS = scale_image(pygame.image.load("images/4_of_clubs.png"), 0.3)
+FOUR_DIAMONDS = scale_image(pygame.image.load("images/4_of_diamonds.png"), 0.3)
+FOUR_SPADES = scale_image(pygame.image.load("images/4_of_spades.png"), 0.3)
+FOUR_HEARTS = scale_image(pygame.image.load("images/4_of_hearts.png"), 0.3)
+
+FIVE_CLUBS = scale_image(pygame.image.load("images/5_of_clubs.png"), 0.3)
+FIVE_DIAMONDS = scale_image(pygame.image.load("images/5_of_diamonds.png"), 0.3)
+FIVE_SPADES = scale_image(pygame.image.load("images/5_of_spades.png"), 0.3)
+FIVE_HEARTS = scale_image(pygame.image.load("images/5_of_hearts.png"), 0.3)
+
+SIX_CLUBS = scale_image(pygame.image.load("images/6_of_clubs.png"), 0.3)
+SIX_DIAMONDS = scale_image(pygame.image.load("images/6_of_diamonds.png"), 0.3)
+SIX_SPADES = scale_image(pygame.image.load("images/6_of_spades.png"), 0.3)
+SIX_HEARTS = scale_image(pygame.image.load("images/6_of_hearts.png"), 0.3)
+
+SEVEN_CLUBS = scale_image(pygame.image.load("images/7_of_clubs.png"), 0.3)
+SEVEN_DIAMONDS = scale_image(pygame.image.load("images/7_of_diamonds.png"), 0.3)
+SEVEN_SPADES = scale_image(pygame.image.load("images/7_of_spades.png"), 0.3)
+SEVEN_HEARTS = scale_image(pygame.image.load("images/7_of_hearts.png"), 0.3)
+
+EIGHT_CLUBS = scale_image(pygame.image.load("images/8_of_clubs.png"), 0.3)
+EIGHT_DIAMONDS = scale_image(pygame.image.load("images/8_of_diamonds.png"), 0.3)
+EIGHT_SPADES = scale_image(pygame.image.load("images/8_of_spades.png"), 0.3)
+EIGHT_HEARTS = scale_image(pygame.image.load("images/8_of_hearts.png"), 0.3)
+
+NINE_CLUBS = scale_image(pygame.image.load("images/9_of_clubs.png"), 0.3)
+NINE_DIAMONDS = scale_image(pygame.image.load("images/9_of_diamonds.png"), 0.3)
+NINE_SPADES = scale_image(pygame.image.load("images/9_of_spades.png"), 0.3)
+NINE_HEARTS = scale_image(pygame.image.load("images/9_of_hearts.png"), 0.3)
+
+TEN_CLUBS = scale_image(pygame.image.load("images/10_of_clubs.png"), 0.3)
+TEN_DIAMONDS = scale_image(pygame.image.load("images/10_of_diamonds.png"), 0.3)
+TEN_SPADES = scale_image(pygame.image.load("images/10_of_spades.png"), 0.3)
+TEN_HEARTS = scale_image(pygame.image.load("images/10_of_hearts.png"), 0.3)
+
+JACK_CLUBS = scale_image(pygame.image.load("images/jack_of_clubs.png"), 0.3)
+JACK_DIAMONDS = scale_image(pygame.image.load("images/jack_of_diamonds.png"), 0.3)
+JACK_SPADES = scale_image(pygame.image.load("images/jack_of_spades.png"), 0.3)
+JACK_HEARTS = scale_image(pygame.image.load("images/jack_of_hearts.png"), 0.3)
+
+QUEEN_CLUBS = scale_image(pygame.image.load("images/queen_of_clubs.png"), 0.3)
+QUEEN_DIAMONDS = scale_image(pygame.image.load("images/queen_of_diamonds.png"), 0.3)
+QUEEN_SPADES = scale_image(pygame.image.load("images/queen_of_spades.png"), 0.3)
+QUEEN_HEARTS = scale_image(pygame.image.load("images/queen_of_hearts.png"), 0.3)
+
+KING_CLUBS = scale_image(pygame.image.load("images/king_of_clubs.png"), 0.3)
+KING_DIAMONDS = scale_image(pygame.image.load("images/king_of_diamonds.png"), 0.3)
+KING_SPADES = scale_image(pygame.image.load("images/king_of_spades.png"), 0.3)
+KING_HEARTS = scale_image(pygame.image.load("images/king_of_hearts.png"), 0.3)
+
+ACE_CLUBS = scale_image(pygame.image.load("images/ace_of_clubs.png"), 0.3)
+ACE_DIAMONDS = scale_image(pygame.image.load("images/ace_of_diamonds.png"), 0.3)
+ACE_SPADES = scale_image(pygame.image.load("images/ace_of_spades.png"), 0.3)
+ACE_HEARTS = scale_image(pygame.image.load("images/ace_of_hearts.png"), 0.3)
+
+
+WIDTH,HEIGHT = 1200,800
+WIN = pygame.display.set_mode((WIDTH,HEIGHT))
+pygame.display.set_caption("Racing Game!")
+FPS = 60
+MAIN_FONT = pygame.font.SysFont("comicsans", 30)
+
+run = True
+clock = pygame.time.Clock()
+images =[(TWO_CLUBS, (500,500))]
+
+def draw(win, images):
+    for img,pos in images:
+        win.blit(img, pos)
+
+
+    pygame.display.update()
+
+
+while run:
+    clock.tick(FPS)
+    
+    
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+            break
+
+    draw(WIN,images)
+
+
+
+
+
+
+pygame.quit()ime
 import math
 import card_images
 from utils import scale_image, blit_rotate_center, blit_text_center
