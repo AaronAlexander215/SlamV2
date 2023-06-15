@@ -4,6 +4,7 @@ import math
 import card_images
 import random
 from utils import scale_image, blit_rotate_center, blit_text_center
+pygame.init()
 pygame.font.init()
 
 BACK = scale_image(pygame.image.load("images/z_back.png"),0.3625)
@@ -208,10 +209,6 @@ class Deck(object):
             for v in range(1, 14):
                 self.cards.append(Card(s,v,None))
 
-
-        
-        
-
     def show(self):
         for c in self.cards:
             c.show()
@@ -346,7 +343,7 @@ class Player(object):
             WIN.blit(BACK, (924,262.5))
 
         if self.play != []:
-            WIN.blit(self.hand[0].image, (775,262.5))
+            WIN.blit(self.play[0].image, (775,262.5))
     
     def displayComputersCards(self):
         if self.t5 != []:
@@ -368,7 +365,18 @@ class Player(object):
             WIN.blit(BACK, (224,262.5))
 
         if self.play != []:
-            WIN.blit(self.hand[0].image, (425,262.5))
+            WIN.blit(self.play[0].image, (425,262.5))
+
+    def canPlay(self, opponent):
+        if self.t1[0].value != (self.play[0].value +1) and self.t1[0].value != (self.play[0].value -1) and self.t1[0].value != (opponent.play[0].value +1) and self.t1[0].value != (opponent.play[0].value -1) and self.t2[0].value != (self.play[0].value +1) and self.t2[0].value != (self.play[0].value -1) and self.t2[0].value != (opponent.play[0].value +1) and self.t2[0].value != (opponent.play[0].value -1) and self.t3[0].value != (self.play[0].value +1) and self.t3[0].value != (self.play[0].value -1) and self.t3[0].value != (opponent.play[0].value +1) and self.t3[0].value != (opponent.play[0].value -1) and self.t4[0].value != (self.play[0].value +1) and self.t4[0].value != (self.play[0].value -1) and self.t4[0].value != (opponent.play[0].value +1) and self.t4[0].value != (opponent.play[0].value -1) and self.t5[0].value != (self.play[0].value +1) and self.t5[0].value != (self.play[0].value -1) and self.t5[0].value != (opponent.play[0].value +1) and self.t5[0].value != (opponent.play[0].value -1):
+            return 0
+        else:
+            return 1  
+
+    def swapCard(self, card, place):
+        if card == 1 and place == 2:
+            self.play.append(self.t1.pop())
+
 
 WIDTH,HEIGHT = 1400,700
 WIN = pygame.display.set_mode((WIDTH,HEIGHT))
@@ -382,12 +390,38 @@ images =[]
 
 
 
-def draw(win, image):
-    for imgs,pos in image:
-        win.blit(imgs,pos)
 
 
-    pygame.display.update()
+
+def handleKeys():
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()    
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            pos = pygame.mouse.get_pos()
+            if pos[0] > 250 and pos[0] < 374 and pos[1]>500 and pos[1] < 682:
+                print("CARD 1") 
+                return 1
+            elif pos[0] > 425 and pos[0] < 549 and pos[1]>500 and pos[1] < 682:
+                print("CARD 2")  
+                return 2  
+            elif pos[0] > 600 and pos[0] < 724 and pos[1]>500 and pos[1] < 682:
+                print("CARD 3")
+                return 3      
+            elif pos[0] > 775 and pos[0] < 899 and pos[1]>500 and pos[1] < 682:
+                print("CARD 4")     
+                return 4 
+            elif pos[0] > 950 and pos[0] < 1074 and pos[1]>500 and pos[1] < 682:
+                print("CARD 5")  
+                return 5    
+            elif pos[0] > 435 and pos[0] < 549 and pos[1]>262.5 and pos[1] < 444.5:
+                print("HAND 1")
+                return 6     
+            elif pos[0] > 775 and pos[0] < 899 and pos[1]>262.5 and pos[1] < 444.5:
+                print("HAND 2")
+                return 7               
+
+                
     
 clock.tick(FPS)
 deck = Deck()
@@ -404,17 +438,53 @@ player.makeTableaus()
 computer.makeTableaus()
 player.displayPlayersCards()
 computer.displayComputersCards()
-
+moveCard = 0
+placeCard = 0
 
 
 while run:
 
-    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run = False
-            break
+            exit()    
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            pos = pygame.mouse.get_pos()
+            if pos[0] > 250 and pos[0] < 374 and pos[1]>500 and pos[1] < 682:
+                print("CARD 1") 
+                moveCard = 1
+            elif pos[0] > 425 and pos[0] < 549 and pos[1]>500 and pos[1] < 682:
+                print("CARD 2")  
+                moveCard = 2  
+            elif pos[0] > 600 and pos[0] < 724 and pos[1]>500 and pos[1] < 682:
+                print("CARD 3")
+                moveCard = 3      
+            elif pos[0] > 775 and pos[0] < 899 and pos[1]>500 and pos[1] < 682:
+                print("CARD 4")     
+                moveCard = 4 
+            elif pos[0] > 950 and pos[0] < 1074 and pos[1]>500 and pos[1] < 682:
+                print("CARD 5")  
+                moveCard = 5    
+            elif pos[0] > 435 and pos[0] < 549 and pos[1]>262.5 and pos[1] < 444.5:
+                print("HAND 1")
+                placeCard = 1     
+            elif pos[0] > 775 and pos[0] < 899 and pos[1]>262.5 and pos[1] < 444.5:
+                print("HAND 2")
+                placeCard = 2        
 
-    draw(WIN,images)
+
+    if  moveCard == 1 and placeCard == 2:
+        #print(player.t1[0].value)
+        #print(player.play[0].value)
+        player.play.insert(0,player.t1[0])
+        #player.t1.pop()
+        pygame.display.update()
+        player.displayPlayersCards()
+        computer.displayComputersCards()
+        #print(player.play[1].value)
+
+    pygame.display.update()
+
 
 pygame.quit()
+
+#(player.t1[0].value == player.play[0].value +1 or player.t1[0].value == player.play[0].value -1) and
