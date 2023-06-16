@@ -326,46 +326,56 @@ class Player(object):
 
         if self.t1  != []:
             WIN.blit(self.t1[0].image, (250,500))
+        elif self.t1 == []:
+            WIN.blit(BACK, (225,501) )
  
         if self.t2  != []:
-            WIN.blit(self.t2[0].image, (425,500))
+            WIN.blit(self.t2[len(self.t2)-1].image, (425,500))
+        elif self.t2 == []:
+            WIN.blit(BACK, (400,501))
 
         if self.t3  != []:
-            WIN.blit(self.t3[0].image, (600,500))
+            WIN.blit(self.t3[len(self.t3)-1].image, (600,500))
+        elif self.t3 == []:
+            WIN.blit(BACK, (575,501))
 
         if self.t4  != []:
-            WIN.blit(self.t4[0].image, (775,500))
+            WIN.blit(self.t4[len(self.t4)-1].image, (775,500))
+        elif self.t4 == []:
+            WIN.blit(BACK, (750,501))
 
         if self.t5  != []:
-            WIN.blit(self.t5[0].image, (950,500))
+            WIN.blit(self.t5[len(self.t5)-1].image, (950,500))
+        elif self.t5 == []:
+            WIN.blit(BACK, (925,501))
 
         if self.leftovers != []: 
             WIN.blit(BACK, (924,262.5))
 
         if self.play != []:
-            WIN.blit(self.play[0].image, (775,262.5))
+            WIN.blit(self.play[len(self.play)-1].image, (775,262.5))
     
     def displayComputersCards(self):
         if self.t5 != []:
-            WIN.blit(self.t1[0].image, (250,25))
+            WIN.blit(self.t5[len(self.t5)-1].image, (250,25))
 
         if self.t4  != []:
-            WIN.blit(self.t2[0].image, (425,25))
+            WIN.blit(self.t4[len(self.t4)-1].image, (425,25))
 
         if self.t3  != []:
-            WIN.blit(self.t3[0].image, (600,25))
+            WIN.blit(self.t3[len(self.t3)-1].image, (600,25))
 
         if self.t2  != []:
-            WIN.blit(self.t4[0].image, (775,25))
+            WIN.blit(self.t2[len(self.t2)-1].image, (775,25))
 
         if self.t1  != []:
-            WIN.blit(self.t5[0].image, (950,25))
+            WIN.blit(self.t1[0].image, (950,25))
 
         if self.leftovers != []:
             WIN.blit(BACK, (224,262.5))
 
         if self.play != []:
-            WIN.blit(self.play[0].image, (425,262.5))
+            WIN.blit(self.play[len(self.play)-1].image, (425,262.5))
 
     def canPlay(self, opponent):
         if self.t1[0].value != (self.play[0].value +1) and self.t1[0].value != (self.play[0].value -1) and self.t1[0].value != (opponent.play[0].value +1) and self.t1[0].value != (opponent.play[0].value -1) and self.t2[0].value != (self.play[0].value +1) and self.t2[0].value != (self.play[0].value -1) and self.t2[0].value != (opponent.play[0].value +1) and self.t2[0].value != (opponent.play[0].value -1) and self.t3[0].value != (self.play[0].value +1) and self.t3[0].value != (self.play[0].value -1) and self.t3[0].value != (opponent.play[0].value +1) and self.t3[0].value != (opponent.play[0].value -1) and self.t4[0].value != (self.play[0].value +1) and self.t4[0].value != (self.play[0].value -1) and self.t4[0].value != (opponent.play[0].value +1) and self.t4[0].value != (opponent.play[0].value -1) and self.t5[0].value != (self.play[0].value +1) and self.t5[0].value != (self.play[0].value -1) and self.t5[0].value != (opponent.play[0].value +1) and self.t5[0].value != (opponent.play[0].value -1):
@@ -442,6 +452,8 @@ moveCard = 0
 placeCard = 0
 
 
+
+
 while run:
 
     for event in pygame.event.get():
@@ -472,19 +484,55 @@ while run:
                 placeCard = 2        
 
 
-    if  moveCard == 1 and placeCard == 2:
-        #print(player.t1[0].value)
-        #print(player.play[0].value)
-        player.play.insert(0,player.t1[0])
-        #player.t1.pop()
-        pygame.display.update()
+    if  moveCard == 1 and placeCard == 2 and player.t1 != [] and (player.t1[0].value == player.play[len(player.play)-1].value +1 or player.t1[0].value == player.play[len(player.play)-1].value -1 or (player.t1[len(player.t1)-1].value == 1 and player.play[len(player.play)-1].value == 14) or (player.t1[len(player.t1)-1].value == 14 and player.play[len(player.play)-1].value == 1)):
+        
+        player.play.append(player.t1[0])
+        player.t1.pop()
         player.displayPlayersCards()
         computer.displayComputersCards()
-        #print(player.play[1].value)
+        moveCard = 0
+        placeCard = 0
 
+    elif  moveCard == 2 and placeCard == 2 and player.t2 != [] and (player.t2[len(player.t2)-1].value == player.play[len(player.play)-1].value +1 or player.t2[len(player.t2)-1].value == player.play[len(player.play)-1].value -1 or (player.t2[len(player.t2)-1].value == 1 and player.play[len(player.play)-1].value == 14) or (player.t2[len(player.t2)-1].value == 14 and player.play[len(player.play)-1].value == 1)):
+        
+        player.play.append(player.t2[len(player.t2)-1])
+        player.t2.pop()
+        player.displayPlayersCards()
+        computer.displayComputersCards()
+        moveCard = 0
+        placeCard = 0
+
+    elif  moveCard == 3 and placeCard == 2 and player.t3 != [] and (player.t3[len(player.t3)-1].value == player.play[len(player.play)-1].value +1 or player.t3[len(player.t3)-1].value == player.play[len(player.play)-1].value -1 or (player.t3[len(player.t3)-1].value == 1 and player.play[len(player.play)-1].value == 14) or (player.t3[len(player.t3)-1].value == 14 and player.play[len(player.play)-1].value == 1)):
+        
+        player.play.append(player.t3[len(player.t3)-1])
+        player.t3.pop()
+        player.displayPlayersCards()
+        computer.displayComputersCards()  
+        moveCard = 0
+        placeCard = 0
+
+    elif  moveCard == 4 and placeCard == 2 and player.t4 != [] and (player.t4[len(player.t4)-1].value == player.play[len(player.play)-1].value +1 or player.t4[len(player.t4)-1].value == player.play[len(player.play)-1].value -1 or (player.t4[len(player.t4)-1].value == 1 and player.play[len(player.play)-1].value == 14) or (player.t4[len(player.t4)-1].value == 14 and player.play[len(player.play)-1].value == 1)):
+        
+        player.play.append(player.t4[len(player.t4)-1])
+        player.t4.pop()
+        player.displayPlayersCards()
+        computer.displayComputersCards() 
+        moveCard = 0
+        placeCard = 0
+
+    elif  moveCard == 5 and placeCard == 2 and player.t2 != [] and (player.t5[len(player.t5)-1].value == player.play[len(player.play)-1].value +1 or player.t5[len(player.t5)-1].value == player.play[len(player.play)-1].value -1 or (player.t5[len(player.t5)-1].value == 1 and player.play[len(player.play)-1].value == 14) or (player.t5[len(player.t5)-1].value == 14 and player.play[len(player.play)-1].value == 1)):
+        
+        player.play.append(player.t5[len(player.t5)-1])
+        player.t5.pop()
+        player.displayPlayersCards()
+        computer.displayComputersCards()
+        moveCard = 0
+        placeCard = 0
+
+    
+    
     pygame.display.update()
 
 
 pygame.quit()
 
-#(player.t1[0].value == player.play[0].value +1 or player.t1[0].value == player.play[0].value -1) and
