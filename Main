@@ -388,18 +388,18 @@ class Player(object):
             WIN.blit(self.play[len(self.play)-1].image, (425,262.5))
 
     def canPlay(self, opponent):
-        if self.t1[0].value != (self.play[0].value +1) and self.t1[0].value != (self.play[0].value -1) and self.t1[0].value != (opponent.play[0].value +1) and self.t1[0].value != (opponent.play[0].value -1) and self.t2[0].value != (self.play[0].value +1) and self.t2[0].value != (self.play[0].value -1) and self.t2[0].value != (opponent.play[0].value +1) and self.t2[0].value != (opponent.play[0].value -1) and self.t3[0].value != (self.play[0].value +1) and self.t3[0].value != (self.play[0].value -1) and self.t3[0].value != (opponent.play[0].value +1) and self.t3[0].value != (opponent.play[0].value -1) and self.t4[0].value != (self.play[0].value +1) and self.t4[0].value != (self.play[0].value -1) and self.t4[0].value != (opponent.play[0].value +1) and self.t4[0].value != (opponent.play[0].value -1) and self.t5[0].value != (self.play[0].value +1) and self.t5[0].value != (self.play[0].value -1) and self.t5[0].value != (opponent.play[0].value +1) and self.t5[0].value != (opponent.play[0].value -1):
+        
+        
+        if self.t1[len(self.t1)-1].value != (self.play[len(self.play)-1].value +1) and self.t1[len(self.t1)-1].value != (self.play[len(self.play)-1].value -1) and self.t1[len(self.t1)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t1[len(self.t1)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t2[len(self.t2)-1].value != (self.play[len(self.play)-1].value +1) and self.t2[len(self.t2)-1].value != (self.play[len(self.play)-1].value -1) and self.t2[len(self.t2)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t2[len(self.t2)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t3[len(self.t3)-1].value != (self.play[len(self.play)-1].value +1) and self.t3[len(self.t3)-1].value != (self.play[len(self.play)-1].value -1) and self.t3[len(self.t3)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t3[len(self.t3)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t4[len(self.t4)-1].value != (self.play[len(self.play)-1].value +1) and self.t4[len(self.t4)-1].value != (self.play[len(self.play)-1].value -1) and self.t4[len(self.t4)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t4[len(self.t4)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t5[len(self.t5)-1].value != (self.play[len(self.play)-1].value +1) and self.t5[len(self.t5)-1].value != (self.play[len(self.play)-1].value -1) and self.t5[len(self.t5)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t5[len(self.t5)-1].value != (opponent.play[len(opponent.play)-1].value -1):
             return 0
         else:
             return 1  
 
-    def swapCard(self, card, place):
-        if card == 1 and place == 2:
-            self.play.append(self.t1.pop())
+
 
 
 WIDTH,HEIGHT = 1400,700
-REACTION = 3000
+REACTION = 1000
 WIN = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption("Slam!")
 FPS = 60
@@ -621,6 +621,9 @@ while run:
         computer.play.append(computer.t5[len(computer.t5)-1])
         computer.t5.pop()
         computer.displayComputersCards()
+    
+    if player.canPlay(computer) == 0 and computer.canPlay(player) == 0:
+        print("Cant play BITCH!")
 
     
     pygame.display.update()
