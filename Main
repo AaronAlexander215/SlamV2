@@ -358,18 +358,28 @@ class Player(object):
     def displayComputersCards(self):
         if self.t5 != []:
             WIN.blit(self.t5[len(self.t5)-1].image, (250,25))
+        elif self.t1 == []:
+            WIN.blit(BACK, (225,26) )
 
         if self.t4  != []:
             WIN.blit(self.t4[len(self.t4)-1].image, (425,25))
+        elif self.t1 == []:
+            WIN.blit(BACK, (400,26) )
 
         if self.t3  != []:
             WIN.blit(self.t3[len(self.t3)-1].image, (600,25))
+        elif self.t1 == []:
+            WIN.blit(BACK, (575,26) )
 
         if self.t2  != []:
             WIN.blit(self.t2[len(self.t2)-1].image, (775,25))
+        elif self.t1 == []:
+            WIN.blit(BACK, (750,26) )
 
         if self.t1  != []:
             WIN.blit(self.t1[0].image, (950,25))
+        elif self.t1 == []:
+            WIN.blit(BACK, (925,26) )
 
         if self.leftovers != []:
             WIN.blit(BACK, (224,262.5))
@@ -389,6 +399,7 @@ class Player(object):
 
 
 WIDTH,HEIGHT = 1400,700
+REACTION = 3000
 WIN = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption("Slam!")
 FPS = 60
@@ -397,41 +408,7 @@ MAIN_FONT = pygame.font.SysFont("comicsans", 30)
 run = True
 clock = pygame.time.Clock()
 images =[]
-
-
-
-
-
-
-def handleKeys():
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            exit()    
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            pos = pygame.mouse.get_pos()
-            if pos[0] > 250 and pos[0] < 374 and pos[1]>500 and pos[1] < 682:
-                print("CARD 1") 
-                return 1
-            elif pos[0] > 425 and pos[0] < 549 and pos[1]>500 and pos[1] < 682:
-                print("CARD 2")  
-                return 2  
-            elif pos[0] > 600 and pos[0] < 724 and pos[1]>500 and pos[1] < 682:
-                print("CARD 3")
-                return 3      
-            elif pos[0] > 775 and pos[0] < 899 and pos[1]>500 and pos[1] < 682:
-                print("CARD 4")     
-                return 4 
-            elif pos[0] > 950 and pos[0] < 1074 and pos[1]>500 and pos[1] < 682:
-                print("CARD 5")  
-                return 5    
-            elif pos[0] > 435 and pos[0] < 549 and pos[1]>262.5 and pos[1] < 444.5:
-                print("HAND 1")
-                return 6     
-            elif pos[0] > 775 and pos[0] < 899 and pos[1]>262.5 and pos[1] < 444.5:
-                print("HAND 2")
-                return 7               
-
-                
+             
     
 clock.tick(FPS)
 deck = Deck()
@@ -452,8 +429,6 @@ moveCard = 0
 placeCard = 0
 
 
-
-
 while run:
 
     for event in pygame.event.get():
@@ -462,25 +437,18 @@ while run:
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
             if pos[0] > 250 and pos[0] < 374 and pos[1]>500 and pos[1] < 682:
-                print("CARD 1") 
                 moveCard = 1
             elif pos[0] > 425 and pos[0] < 549 and pos[1]>500 and pos[1] < 682:
-                print("CARD 2")  
                 moveCard = 2  
             elif pos[0] > 600 and pos[0] < 724 and pos[1]>500 and pos[1] < 682:
-                print("CARD 3")
                 moveCard = 3      
-            elif pos[0] > 775 and pos[0] < 899 and pos[1]>500 and pos[1] < 682:
-                print("CARD 4")     
+            elif pos[0] > 775 and pos[0] < 899 and pos[1]>500 and pos[1] < 682:    
                 moveCard = 4 
-            elif pos[0] > 950 and pos[0] < 1074 and pos[1]>500 and pos[1] < 682:
-                print("CARD 5")  
+            elif pos[0] > 950 and pos[0] < 1074 and pos[1]>500 and pos[1] < 682: 
                 moveCard = 5    
             elif pos[0] > 435 and pos[0] < 549 and pos[1]>262.5 and pos[1] < 444.5:
-                print("HAND 1")
                 placeCard = 1     
             elif pos[0] > 775 and pos[0] < 899 and pos[1]>262.5 and pos[1] < 444.5:
-                print("HAND 2")
                 placeCard = 2        
 
 
@@ -489,7 +457,6 @@ while run:
         player.play.append(player.t1[0])
         player.t1.pop()
         player.displayPlayersCards()
-        computer.displayComputersCards()
         moveCard = 0
         placeCard = 0
 
@@ -498,7 +465,6 @@ while run:
         player.play.append(player.t2[len(player.t2)-1])
         player.t2.pop()
         player.displayPlayersCards()
-        computer.displayComputersCards()
         moveCard = 0
         placeCard = 0
 
@@ -507,7 +473,6 @@ while run:
         player.play.append(player.t3[len(player.t3)-1])
         player.t3.pop()
         player.displayPlayersCards()
-        computer.displayComputersCards()  
         moveCard = 0
         placeCard = 0
 
@@ -516,7 +481,6 @@ while run:
         player.play.append(player.t4[len(player.t4)-1])
         player.t4.pop()
         player.displayPlayersCards()
-        computer.displayComputersCards() 
         moveCard = 0
         placeCard = 0
 
@@ -525,7 +489,6 @@ while run:
         player.play.append(player.t5[len(player.t5)-1])
         player.t5.pop()
         player.displayPlayersCards()
-        computer.displayComputersCards()
         moveCard = 0
         placeCard = 0
  
@@ -574,6 +537,91 @@ while run:
         moveCard = 0
         placeCard = 0
     
+
+    if  computer.t1 != [] and (computer.t1[0].value == player.play[len(player.play)-1].value +1 or computer.t1[0].value == player.play[len(player.play)-1].value -1 or (computer.t1[len(computer.t1)-1].value == 1 and player.play[len(player.play)-2].value == 13) or (computer.t1[len(computer.t1)-1].value == 13 and player.play[len(player.play)-1].value == 1)):
+        
+        pygame.time.wait(REACTION)
+        player.play.append(computer.t1[0])
+        computer.t1.pop()
+        player.displayPlayersCards()
+        computer.displayComputersCards()
+
+
+    elif  computer.t2 != [] and (computer.t2[len(computer.t2)-1].value == player.play[len(player.play)-1].value +1 or computer.t2[len(computer.t2)-1].value == player.play[len(player.play)-1].value -1 or (computer.t2[len(computer.t2)-1].value == 1 and player.play[len(player.play)-1].value == 13) or (computer.t2[len(computer.t2)-1].value == 13 and player.play[len(player.play)-1].value == 1)):
+        
+        pygame.time.wait(REACTION)
+        player.play.append(computer.t2[len(computer.t2)-1])
+        computer.t2.pop()
+        player.displayPlayersCards()
+        computer.displayComputersCards()
+
+
+    elif  computer.t3 != [] and (computer.t3[len(computer.t3)-1].value == player.play[len(player.play)-1].value +1 or computer.t3[len(computer.t3)-1].value == player.play[len(player.play)-1].value -1 or (computer.t3[len(computer.t3)-1].value == 1  and player.play[len(player.play)-1].value == 13) or (computer.t3[len(computer.t3)-1].value == 13 and player.play[len(player.play)-1].value == 1)):
+        
+        pygame.time.wait(REACTION)
+        player.play.append(computer.t3[len(computer.t3)-1])
+        computer.t3.pop()
+        player.displayPlayersCards()
+        computer.displayComputersCards()  
+
+
+    elif  computer.t4 != [] and (computer.t4[len(computer.t4)-1].value == player.play[len(player.play)-1].value +1 or computer.t4[len(computer.t4)-1].value == player.play[len(player.play)-1].value -1 or (computer.t4[len(computer.t4)-1].value == 1 and player.play[len(player.play)-1].value == 13) or (computer.t4[len(computer.t4)-1].value == 13 and player.play[len(player.play)-1].value == 1)):
+        
+        pygame.time.wait(REACTION)
+        player.play.append(computer.t4[len(computer.t4)-1])
+        computer.t4.pop()
+        player.displayPlayersCards()
+        computer.displayComputersCards() 
+
+
+    elif  computer.t5 != [] and (computer.t5[len(computer.t5)-1].value == player.play[len(player.play)-1].value +1 or computer.t5[len(computer.t5)-1].value == player.play[len(player.play)-1].value -1 or (computer.t5[len(computer.t5)-1].value == 1 and player.play[len(player.play)-1].value == 13) or (computer.t5[len(computer.t5)-1].value == 13 and player.play[len(player.play)-1].value == 1)):
+        
+        pygame.time.wait(REACTION)
+        player.play.append(computer.t5[len(computer.t5)-1])
+        computer.t5.pop()
+        player.displayPlayersCards()
+        computer.displayComputersCards()
+
+ 
+    elif  computer.t1 != [] and (computer.t1[0].value == computer.play[len(computer.play)-1].value +1 or computer.t1[0].value == computer.play[len(computer.play)-1].value -1 or (computer.t1[len(computer.t1)-1].value == 1 and computer.play[len(computer.play)-1].value == 13) or (computer.t1[len(computer.t1)-1].value == 13 and computer.play[len(computer.play)-1].value == 1)):
+        
+        pygame.time.wait(REACTION)
+        computer.play.append(computer.t1[0])
+        computer.t1.pop()
+        computer.displayComputersCards()
+
+
+    elif  computer.t2 != [] and (computer.t2[len(computer.t2)-1].value == computer.play[len(computer.play)-1].value +1 or computer.t2[len(computer.t2)-1].value == computer.play[len(computer.play)-1].value -1 or (computer.t2[len(computer.t2)-1].value == 1 and computer.play[len(computer.play)-1].value == 13) or (computer.t2[len(computer.t2)-1].value == 13 and computer.play[len(computer.play)-1].value == 1)):
+        
+        pygame.time.wait(REACTION)
+        computer.play.append(computer.t2[len(computer.t2)-1])
+        computer.t2.pop()
+        computer.displayComputersCards()
+
+
+    elif  computer.t3 != [] and (computer.t3[len(computer.t3)-1].value == computer.play[len(computer.play)-1].value +1 or computer.t3[len(computer.t3)-1].value == computer.play[len(computer.play)-1].value -1 or (computer.t3[len(computer.t3)-1].value == 1 and computer.play[len(computer.play)-1].value == 13) or (computer.t3[len(computer.t3)-1].value == 13 and computer.play[len(computer.play)-1].value == 1)):
+        
+        pygame.time.wait(REACTION)
+        computer.play.append(computer.t3[len(computer.t3)-1])
+        computer.t3.pop()
+        computer.displayComputersCards()  
+
+
+    elif  computer.t4 != [] and (computer.t4[len(computer.t4)-1].value == computer.play[len(computer.play)-1].value +1 or computer.t4[len(computer.t4)-1].value == computer.play[len(computer.play)-1].value -1 or (computer.t4[len(computer.t4)-1].value == 1 and computer.play[len(computer.play)-1].value == 13) or (computer.t4[len(computer.t4)-1].value == 13 and computer.play[len(computer.play)-1].value == 1)):
+        
+        pygame.time.wait(REACTION)
+        computer.play.append(computer.t4[len(computer.t4)-1])
+        computer.t4.pop()
+        computer.displayComputersCards() 
+
+
+    elif  computer.t2 != [] and (computer.t5[len(computer.t5)-1].value == computer.play[len(computer.play)-1].value +1 or computer.t5[len(computer.t5)-1].value == computer.play[len(computer.play)-1].value -1 or (computer.t5[len(computer.t5)-1].value == 1 and computer.play[len(computer.play)-1].value == 13) or (computer.t5[len(computer.t5)-1].value == 13 and computer.play[len(computer.play)-1].value == 1)):
+        
+        pygame.time.wait(REACTION)
+        computer.play.append(computer.t5[len(computer.t5)-1])
+        computer.t5.pop()
+        computer.displayComputersCards()
+
     
     pygame.display.update()
 
