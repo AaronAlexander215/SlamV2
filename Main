@@ -484,7 +484,7 @@ while run:
                 placeCard = 2        
 
 
-    if  moveCard == 1 and placeCard == 2 and player.t1 != [] and (player.t1[0].value == player.play[len(player.play)-1].value +1 or player.t1[0].value == player.play[len(player.play)-1].value -1 or (player.t1[len(player.t1)-1].value == 1 and player.play[len(player.play)-1].value == 14) or (player.t1[len(player.t1)-1].value == 14 and player.play[len(player.play)-1].value == 1)):
+    if  moveCard == 1 and placeCard == 2 and player.t1 != [] and (player.t1[0].value == player.play[len(player.play)-1].value +1 or player.t1[0].value == player.play[len(player.play)-1].value -1 or (player.t1[len(player.t1)-1].value == 1 and player.play[len(player.play)-2].value == 13) or (player.t1[len(player.t1)-1].value == 13 and player.play[len(player.play)-1].value == 1)):
         
         player.play.append(player.t1[0])
         player.t1.pop()
@@ -493,7 +493,7 @@ while run:
         moveCard = 0
         placeCard = 0
 
-    elif  moveCard == 2 and placeCard == 2 and player.t2 != [] and (player.t2[len(player.t2)-1].value == player.play[len(player.play)-1].value +1 or player.t2[len(player.t2)-1].value == player.play[len(player.play)-1].value -1 or (player.t2[len(player.t2)-1].value == 1 and player.play[len(player.play)-1].value == 14) or (player.t2[len(player.t2)-1].value == 14 and player.play[len(player.play)-1].value == 1)):
+    elif  moveCard == 2 and placeCard == 2 and player.t2 != [] and (player.t2[len(player.t2)-1].value == player.play[len(player.play)-1].value +1 or player.t2[len(player.t2)-1].value == player.play[len(player.play)-1].value -1 or (player.t2[len(player.t2)-1].value == 1 and player.play[len(player.play)-1].value == 13) or (player.t2[len(player.t2)-1].value == 13 and player.play[len(player.play)-1].value == 1)):
         
         player.play.append(player.t2[len(player.t2)-1])
         player.t2.pop()
@@ -502,7 +502,7 @@ while run:
         moveCard = 0
         placeCard = 0
 
-    elif  moveCard == 3 and placeCard == 2 and player.t3 != [] and (player.t3[len(player.t3)-1].value == player.play[len(player.play)-1].value +1 or player.t3[len(player.t3)-1].value == player.play[len(player.play)-1].value -1 or (player.t3[len(player.t3)-1].value == 1 and player.play[len(player.play)-1].value == 14) or (player.t3[len(player.t3)-1].value == 14 and player.play[len(player.play)-1].value == 1)):
+    elif  moveCard == 3 and placeCard == 2 and player.t3 != [] and (player.t3[len(player.t3)-1].value == player.play[len(player.play)-1].value +1 or player.t3[len(player.t3)-1].value == player.play[len(player.play)-1].value -1 or (player.t3[len(player.t3)-1].value == 1  and player.play[len(player.play)-1].value == 13) or (player.t3[len(player.t3)-1].value == 13 and player.play[len(player.play)-1].value == 1)):
         
         player.play.append(player.t3[len(player.t3)-1])
         player.t3.pop()
@@ -511,7 +511,7 @@ while run:
         moveCard = 0
         placeCard = 0
 
-    elif  moveCard == 4 and placeCard == 2 and player.t4 != [] and (player.t4[len(player.t4)-1].value == player.play[len(player.play)-1].value +1 or player.t4[len(player.t4)-1].value == player.play[len(player.play)-1].value -1 or (player.t4[len(player.t4)-1].value == 1 and player.play[len(player.play)-1].value == 14) or (player.t4[len(player.t4)-1].value == 14 and player.play[len(player.play)-1].value == 1)):
+    elif  moveCard == 4 and placeCard == 2 and player.t4 != [] and (player.t4[len(player.t4)-1].value == player.play[len(player.play)-1].value +1 or player.t4[len(player.t4)-1].value == player.play[len(player.play)-1].value -1 or (player.t4[len(player.t4)-1].value == 1 and player.play[len(player.play)-1].value == 13) or (player.t4[len(player.t4)-1].value == 13 and player.play[len(player.play)-1].value == 1)):
         
         player.play.append(player.t4[len(player.t4)-1])
         player.t4.pop()
@@ -520,7 +520,7 @@ while run:
         moveCard = 0
         placeCard = 0
 
-    elif  moveCard == 5 and placeCard == 2 and player.t2 != [] and (player.t5[len(player.t5)-1].value == player.play[len(player.play)-1].value +1 or player.t5[len(player.t5)-1].value == player.play[len(player.play)-1].value -1 or (player.t5[len(player.t5)-1].value == 1 and player.play[len(player.play)-1].value == 14) or (player.t5[len(player.t5)-1].value == 14 and player.play[len(player.play)-1].value == 1)):
+    elif  moveCard == 5 and placeCard == 2 and player.t2 != [] and (player.t5[len(player.t5)-1].value == player.play[len(player.play)-1].value +1 or player.t5[len(player.t5)-1].value == player.play[len(player.play)-1].value -1 or (player.t5[len(player.t5)-1].value == 1 and player.play[len(player.play)-1].value == 13) or (player.t5[len(player.t5)-1].value == 13 and player.play[len(player.play)-1].value == 1)):
         
         player.play.append(player.t5[len(player.t5)-1])
         player.t5.pop()
@@ -528,7 +528,51 @@ while run:
         computer.displayComputersCards()
         moveCard = 0
         placeCard = 0
+ 
+    elif  moveCard == 1 and placeCard == 1 and player.t1 != [] and (player.t1[0].value == computer.play[len(computer.play)-1].value +1 or player.t1[0].value == computer.play[len(computer.play)-1].value -1 or (player.t1[len(player.t1)-1].value == 1 and computer.play[len(computer.play)-1].value == 13) or (player.t1[len(player.t1)-1].value == 13 and computer.play[len(computer.play)-1].value == 1)):
+        
+        computer.play.append(player.t1[0])
+        player.t1.pop()
+        player.displayPlayersCards()
+        computer.displayComputersCards()
+        moveCard = 0
+        placeCard = 0
 
+    elif  moveCard == 2 and placeCard == 1 and player.t2 != [] and (player.t2[len(player.t2)-1].value == computer.play[len(computer.play)-1].value +1 or player.t2[len(player.t2)-1].value == computer.play[len(computer.play)-1].value -1 or (player.t2[len(player.t2)-1].value == 1 and computer.play[len(computer.play)-1].value == 13) or (player.t2[len(player.t2)-1].value == 13 and computer.play[len(computer.play)-1].value == 1)):
+        
+        computer.play.append(player.t2[len(player.t2)-1])
+        player.t2.pop()
+        player.displayPlayersCards()
+        computer.displayComputersCards()
+        moveCard = 0
+        placeCard = 0
+
+    elif  moveCard == 3 and placeCard == 1 and player.t3 != [] and (player.t3[len(player.t3)-1].value == computer.play[len(computer.play)-1].value +1 or player.t3[len(player.t3)-1].value == computer.play[len(computer.play)-1].value -1 or (player.t3[len(player.t3)-1].value == 1 and computer.play[len(computer.play)-1].value == 13) or (player.t3[len(player.t3)-1].value == 13 and computer.play[len(computer.play)-1].value == 1)):
+        
+        computer.play.append(player.t3[len(player.t3)-1])
+        player.t3.pop()
+        player.displayPlayersCards()
+        computer.displayComputersCards()  
+        moveCard = 0
+        placeCard = 0
+
+    elif  moveCard == 4 and placeCard == 1 and player.t4 != [] and (player.t4[len(player.t4)-1].value == computer.play[len(computer.play)-1].value +1 or player.t4[len(player.t4)-1].value == computer.play[len(computer.play)-1].value -1 or (player.t4[len(player.t4)-1].value == 1 and computer.play[len(computer.play)-1].value == 13) or (player.t4[len(player.t4)-1].value == 13 and computer.play[len(computer.play)-1].value == 1)):
+        
+        computer.play.append(player.t4[len(player.t4)-1])
+        player.t4.pop()
+        player.displayPlayersCards()
+        computer.displayComputersCards() 
+        moveCard = 0
+        placeCard = 0
+
+    elif  moveCard == 5 and placeCard == 1 and player.t2 != [] and (player.t5[len(player.t5)-1].value == computer.play[len(computer.play)-1].value +1 or player.t5[len(player.t5)-1].value == computer.play[len(computer.play)-1].value -1 or (player.t5[len(player.t5)-1].value == 1 and computer.play[len(computer.play)-1].value == 13) or (player.t5[len(player.t5)-1].value == 13 and computer.play[len(computer.play)-1].value == 1)):
+        
+        computer.play.append(player.t5[len(player.t5)-1])
+        player.t5.pop()
+        player.displayPlayersCards()
+        computer.displayComputersCards()
+        moveCard = 0
+        placeCard = 0
     
     
     pygame.display.update()
