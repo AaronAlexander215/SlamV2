@@ -389,17 +389,131 @@ class Player(object):
 
     def canPlay(self, opponent):
         
-        
-        if self.t1[len(self.t1)-1].value != (self.play[len(self.play)-1].value +1) and self.t1[len(self.t1)-1].value != (self.play[len(self.play)-1].value -1) and self.t1[len(self.t1)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t1[len(self.t1)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t2[len(self.t2)-1].value != (self.play[len(self.play)-1].value +1) and self.t2[len(self.t2)-1].value != (self.play[len(self.play)-1].value -1) and self.t2[len(self.t2)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t2[len(self.t2)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t3[len(self.t3)-1].value != (self.play[len(self.play)-1].value +1) and self.t3[len(self.t3)-1].value != (self.play[len(self.play)-1].value -1) and self.t3[len(self.t3)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t3[len(self.t3)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t4[len(self.t4)-1].value != (self.play[len(self.play)-1].value +1) and self.t4[len(self.t4)-1].value != (self.play[len(self.play)-1].value -1) and self.t4[len(self.t4)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t4[len(self.t4)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t5[len(self.t5)-1].value != (self.play[len(self.play)-1].value +1) and self.t5[len(self.t5)-1].value != (self.play[len(self.play)-1].value -1) and self.t5[len(self.t5)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t5[len(self.t5)-1].value != (opponent.play[len(opponent.play)-1].value -1):
-            return 0
+        if self.t1 == []:
+            if self.t2[len(self.t2)-1].value != (self.play[len(self.play)-1].value +1) and self.t2[len(self.t2)-1].value != (self.play[len(self.play)-1].value -1) and self.t2[len(self.t2)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t2[len(self.t2)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t3[len(self.t3)-1].value != (self.play[len(self.play)-1].value +1) and self.t3[len(self.t3)-1].value != (self.play[len(self.play)-1].value -1) and self.t3[len(self.t3)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t3[len(self.t3)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t4[len(self.t4)-1].value != (self.play[len(self.play)-1].value +1) and self.t4[len(self.t4)-1].value != (self.play[len(self.play)-1].value -1) and self.t4[len(self.t4)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t4[len(self.t4)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t5[len(self.t5)-1].value != (self.play[len(self.play)-1].value +1) and self.t5[len(self.t5)-1].value != (self.play[len(self.play)-1].value -1) and self.t5[len(self.t5)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t5[len(self.t5)-1].value != (opponent.play[len(opponent.play)-1].value -1):
+                return 0
+            else:
+                return 1  
+        elif self.t2 ==[]:
+            if self.t1[len(self.t1)-1].value != (self.play[len(self.play)-1].value +1) and self.t1[len(self.t1)-1].value != (self.play[len(self.play)-1].value -1) and self.t1[len(self.t1)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t1[len(self.t1)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t3[len(self.t3)-1].value != (self.play[len(self.play)-1].value +1) and self.t3[len(self.t3)-1].value != (self.play[len(self.play)-1].value -1) and self.t3[len(self.t3)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t3[len(self.t3)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t4[len(self.t4)-1].value != (self.play[len(self.play)-1].value +1) and self.t4[len(self.t4)-1].value != (self.play[len(self.play)-1].value -1) and self.t4[len(self.t4)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t4[len(self.t4)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t5[len(self.t5)-1].value != (self.play[len(self.play)-1].value +1) and self.t5[len(self.t5)-1].value != (self.play[len(self.play)-1].value -1) and self.t5[len(self.t5)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t5[len(self.t5)-1].value != (opponent.play[len(opponent.play)-1].value -1):
+                return 0
+            else:
+                return 1 
+        elif self.t3 ==[]:
+            if self.t1[len(self.t1)-1].value != (self.play[len(self.play)-1].value +1) and self.t1[len(self.t1)-1].value != (self.play[len(self.play)-1].value -1) and self.t1[len(self.t1)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t1[len(self.t1)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t2[len(self.t2)-1].value != (self.play[len(self.play)-1].value +1) and self.t2[len(self.t2)-1].value != (self.play[len(self.play)-1].value -1) and self.t2[len(self.t2)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t2[len(self.t2)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t4[len(self.t4)-1].value != (self.play[len(self.play)-1].value +1) and self.t4[len(self.t4)-1].value != (self.play[len(self.play)-1].value -1) and self.t4[len(self.t4)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t4[len(self.t4)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t5[len(self.t5)-1].value != (self.play[len(self.play)-1].value +1) and self.t5[len(self.t5)-1].value != (self.play[len(self.play)-1].value -1) and self.t5[len(self.t5)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t5[len(self.t5)-1].value != (opponent.play[len(opponent.play)-1].value -1):
+                return 0
+            else:
+                return 1 
+        elif self.t4 == []:
+            if self.t1[len(self.t1)-1].value != (self.play[len(self.play)-1].value +1) and self.t1[len(self.t1)-1].value != (self.play[len(self.play)-1].value -1) and self.t1[len(self.t1)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t1[len(self.t1)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t2[len(self.t2)-1].value != (self.play[len(self.play)-1].value +1) and self.t2[len(self.t2)-1].value != (self.play[len(self.play)-1].value -1) and self.t2[len(self.t2)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t2[len(self.t2)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t3[len(self.t3)-1].value != (self.play[len(self.play)-1].value +1) and self.t3[len(self.t3)-1].value != (self.play[len(self.play)-1].value -1) and self.t3[len(self.t3)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t3[len(self.t3)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t5[len(self.t5)-1].value != (self.play[len(self.play)-1].value +1) and self.t5[len(self.t5)-1].value != (self.play[len(self.play)-1].value -1) and self.t5[len(self.t5)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t5[len(self.t5)-1].value != (opponent.play[len(opponent.play)-1].value -1):
+                return 0
+            else:
+                return 1 
+        elif self.t5 == []:
+            if self.t1[len(self.t1)-1].value != (self.play[len(self.play)-1].value +1) and self.t1[len(self.t1)-1].value != (self.play[len(self.play)-1].value -1) and self.t1[len(self.t1)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t1[len(self.t1)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t2[len(self.t2)-1].value != (self.play[len(self.play)-1].value +1) and self.t2[len(self.t2)-1].value != (self.play[len(self.play)-1].value -1) and self.t2[len(self.t2)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t2[len(self.t2)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t3[len(self.t3)-1].value != (self.play[len(self.play)-1].value +1) and self.t3[len(self.t3)-1].value != (self.play[len(self.play)-1].value -1) and self.t3[len(self.t3)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t3[len(self.t3)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t4[len(self.t4)-1].value != (self.play[len(self.play)-1].value +1) and self.t4[len(self.t4)-1].value != (self.play[len(self.play)-1].value -1) and self.t4[len(self.t4)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t4[len(self.t4)-1].value != (opponent.play[len(opponent.play)-1].value -1):
+                return 0
+            else:
+                return 1 
         else:
-            return 1  
+            if self.t1[len(self.t1)-1].value != (self.play[len(self.play)-1].value +1) and self.t1[len(self.t1)-1].value != (self.play[len(self.play)-1].value -1) and self.t1[len(self.t1)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t1[len(self.t1)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t2[len(self.t2)-1].value != (self.play[len(self.play)-1].value +1) and self.t2[len(self.t2)-1].value != (self.play[len(self.play)-1].value -1) and self.t2[len(self.t2)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t2[len(self.t2)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t3[len(self.t3)-1].value != (self.play[len(self.play)-1].value +1) and self.t3[len(self.t3)-1].value != (self.play[len(self.play)-1].value -1) and self.t3[len(self.t3)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t3[len(self.t3)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t4[len(self.t4)-1].value != (self.play[len(self.play)-1].value +1) and self.t4[len(self.t4)-1].value != (self.play[len(self.play)-1].value -1) and self.t4[len(self.t4)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t4[len(self.t4)-1].value != (opponent.play[len(opponent.play)-1].value -1) and self.t5[len(self.t5)-1].value != (self.play[len(self.play)-1].value +1) and self.t5[len(self.t5)-1].value != (self.play[len(self.play)-1].value -1) and self.t5[len(self.t5)-1].value != (opponent.play[len(opponent.play)-1].value +1) and self.t5[len(self.t5)-1].value != (opponent.play[len(opponent.play)-1].value -1):
+                return 0
+            else:
+                return 1 
 
 
+    def rearrangeCards(self):
+        if self.t1 == [] and self.t5 != []:
+            self.t1.append(self.t5[len(self.t5)-1])
+        elif self.t1 == [] and self.t5 == [] and self.t4 != []:
+            self.t1.append(self.t4[len(self.t4)-1]) 
+        elif self.t1 == [] and self.t5 == [] and self.t4 == [] and self.t3 != []:
+            self.t1.append(self.t3[len(self.t3)-1])
+        elif self.t1 == [] and self.t5 == [] and self.t4 == [] and self.t3 == [] and self.t2 != []:
+            self.t1.append(self.t2[len(self.t2)-1])
 
+        if self.t2 == [] and self.t5 != []:
+            self.t2.append(self.t5[len(self.t5)-1])
+        elif self.t2 == [] and self.t5 == [] and self.t4 != []:
+            self.t2.append(self.t4[len(self.t4)-1]) 
+        elif self.t2 == [] and self.t5 == [] and self.t4 == [] and self.t3 != []:
+            self.t2.append(self.t3[len(self.t3)-1])
+        elif self.t2 == [] and self.t5 == [] and self.t4 == [] and self.t3 == [] and self.t1 != []:
+            self.t2.append(self.t1[len(self.t1)-1])
+
+        if self.t3 == [] and self.t5 != []:
+            self.t3.append(self.t5[len(self.t5)-1])
+        elif self.t3 == [] and self.t5 == [] and self.t4 != []:
+            self.t3.append(self.t4[len(self.t4)-1]) 
+        elif self.t3 == [] and self.t5 == [] and self.t4 == [] and self.t2 != []:
+            self.t3.append(self.t2[len(self.t2)-1])
+        elif self.t3 == [] and self.t5 == [] and self.t4 == [] and self.t2 == [] and self.t1 != []:
+            self.t3.append(self.t1[len(self.t1)-1])
+
+        if self.t4 == [] and self.t5 != []:
+            self.t4.append(self.t5[len(self.t5)-1])
+        elif self.t4 == [] and self.t5 == [] and self.t3 != []:
+            self.t4.append(self.t3[len(self.t3)-1]) 
+        elif self.t4 == [] and self.t5 == [] and self.t3 == [] and self.t2 != []:
+            self.t4.append(self.t2[len(self.t2)-1])
+        elif self.t4 == [] and self.t5 == [] and self.t3 == [] and self.t2 == [] and self.t1 != []:
+            self.t4.append(self.t1[len(self.t1)-1])
+
+        if self.t5 == [] and self.t4 != []:
+            self.t5.append(self.t4[len(self.t4)-1])
+        elif self.t5 == [] and self.t4 == [] and self.t3 != []:
+            self.t5.append(self.t3[len(self.t3)-1]) 
+        elif self.t5 == [] and self.t4 == [] and self.t3 == [] and self.t2 != []:
+            self.t5.append(self.t2[len(self.t2)-1])
+        elif self.t5 == [] and self.t4 == [] and self.t3 == [] and self.t2 == [] and self.t1 != []:
+            self.t5.append(self.t1[len(self.t1)-1])
+
+        if self.t1[len(self.t1)-1].value == self.t2[len(self.t2)-1].value:
+            self.t1.append(self.t2[len(self.t2)-1])
+        elif self.t1[len(self.t1)-1].value == self.t3[len(self.t3)-1].value:
+            self.t1.append(self.t3[len(self.t3)-1])
+        elif self.t1[len(self.t1)-1].value == self.t4[len(self.t4)-1].value:
+            self.t1.append(self.t4[len(self.t4)-1])
+        elif self.t1[len(self.t1)-1].value == self.t5[len(self.t5)-1].value:
+            self.t1.append(self.t5[len(self.t5)-1])    
+
+        if self.t2[len(self.t2)-1].value == self.t1[len(self.t1)-1].value:
+            self.t2.append(self.t1[len(self.t1)-1])
+        elif self.t2[len(self.t2)-1].value == self.t3[len(self.t3)-1].value:
+            self.t2.append(self.t3[len(self.t3)-1])
+        elif self.t2[len(self.t2)-1].value == self.t4[len(self.t4)-1].value:
+            self.t2.append(self.t4[len(self.t4)-1])
+        elif self.t2[len(self.t2)-1].value == self.t5[len(self.t5)-1].value:
+            self.t2.append(self.t5[len(self.t5)-1])
+
+        if self.t3[len(self.t3)-1].value == self.t2[len(self.t2)-1].value:
+            self.t3.append(self.t2[len(self.t2)-1])
+        elif self.t3[len(self.t3)-1].value == self.t1[len(self.t1)-1].value:
+            self.t3.append(self.t1[len(self.t1)-1])
+        elif self.t3[len(self.t3)-1].value == self.t4[len(self.t4)-1].value:
+            self.t3.append(self.t4[len(self.t4)-1])
+        elif self.t3[len(self.t3)-1].value == self.t5[len(self.t5)-1].value:
+            self.t3.append(self.t5[len(self.t5)-1])   
+
+        if self.t4[len(self.t4)-1].value == self.t1[len(self.t1)-1].value:
+            self.t4.append(self.t1[len(self.t1)-1])
+        elif self.t4[len(self.t4)-1].value == self.t3[len(self.t3)-1].value:
+            self.t4.append(self.t3[len(self.t3)-1])
+        elif self.t4[len(self.t4)-1].value == self.t2[len(self.t2)-1].value:
+            self.t2.append(self.t2[len(self.t2)-1])
+        elif self.t4[len(self.t4)-1].value == self.t5[len(self.t5)-1].value:
+            self.t4.append(self.t5[len(self.t5)-1]) 
+
+        if self.t5[len(self.t5)-1].value == self.t4[len(self.t4)-1].value:
+            self.t5.append(self.t4[len(self.t4)-1])
+        elif self.t5[len(self.t5)-1].value == self.t3[len(self.t3)-1].value:
+            self.t5.append(self.t3[len(self.t3)-1])
+        elif self.t5[len(self.t5)-1].value == self.t2[len(self.t2)-1].value:
+            self.t5.append(self.t2[len(self.t2)-1])
+        elif self.t5[len(self.t5)-1].value == self.t1[len(self.t1)-1].value:
+            self.t5.append(self.t1[len(self.t1)-1])
 
 WIDTH,HEIGHT = 1400,700
-REACTION = 1000
+REACTION = 5000
 WIN = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption("Slam!")
 FPS = 60
@@ -457,6 +571,7 @@ while run:
         player.play.append(player.t1[0])
         player.t1.pop()
         player.displayPlayersCards()
+        player.rearrangeCards()
         moveCard = 0
         placeCard = 0
 
@@ -465,6 +580,7 @@ while run:
         player.play.append(player.t2[len(player.t2)-1])
         player.t2.pop()
         player.displayPlayersCards()
+        player.rearrangeCards()
         moveCard = 0
         placeCard = 0
 
@@ -473,6 +589,7 @@ while run:
         player.play.append(player.t3[len(player.t3)-1])
         player.t3.pop()
         player.displayPlayersCards()
+        player.rearrangeCards()
         moveCard = 0
         placeCard = 0
 
@@ -481,6 +598,7 @@ while run:
         player.play.append(player.t4[len(player.t4)-1])
         player.t4.pop()
         player.displayPlayersCards()
+        player.rearrangeCards()
         moveCard = 0
         placeCard = 0
 
@@ -489,6 +607,7 @@ while run:
         player.play.append(player.t5[len(player.t5)-1])
         player.t5.pop()
         player.displayPlayersCards()
+        player.rearrangeCards()
         moveCard = 0
         placeCard = 0
  
@@ -498,6 +617,7 @@ while run:
         player.t1.pop()
         player.displayPlayersCards()
         computer.displayComputersCards()
+        player.rearrangeCards()
         moveCard = 0
         placeCard = 0
 
@@ -505,8 +625,9 @@ while run:
         
         computer.play.append(player.t2[len(player.t2)-1])
         player.t2.pop()
-        player.displayPlayersCards()
         computer.displayComputersCards()
+        player.displayPlayersCards()
+        player.rearrangeCards()
         moveCard = 0
         placeCard = 0
 
@@ -514,8 +635,9 @@ while run:
         
         computer.play.append(player.t3[len(player.t3)-1])
         player.t3.pop()
+        computer.displayComputersCards()
         player.displayPlayersCards()
-        computer.displayComputersCards()  
+        player.rearrangeCards()
         moveCard = 0
         placeCard = 0
 
@@ -523,8 +645,9 @@ while run:
         
         computer.play.append(player.t4[len(player.t4)-1])
         player.t4.pop()
+        computer.displayComputersCards()
         player.displayPlayersCards()
-        computer.displayComputersCards() 
+        player.rearrangeCards()
         moveCard = 0
         placeCard = 0
 
@@ -532,8 +655,9 @@ while run:
         
         computer.play.append(player.t5[len(player.t5)-1])
         player.t5.pop()
-        player.displayPlayersCards()
         computer.displayComputersCards()
+        player.displayPlayersCards()
+        player.rearrangeCards()
         moveCard = 0
         placeCard = 0
     
@@ -545,6 +669,8 @@ while run:
         computer.t1.pop()
         player.displayPlayersCards()
         computer.displayComputersCards()
+        computer.rearrangeCards()
+        computer.rearrangeCards()
 
 
     elif  computer.t2 != [] and (computer.t2[len(computer.t2)-1].value == player.play[len(player.play)-1].value +1 or computer.t2[len(computer.t2)-1].value == player.play[len(player.play)-1].value -1 or (computer.t2[len(computer.t2)-1].value == 1 and player.play[len(player.play)-1].value == 13) or (computer.t2[len(computer.t2)-1].value == 13 and player.play[len(player.play)-1].value == 1)):
@@ -554,6 +680,8 @@ while run:
         computer.t2.pop()
         player.displayPlayersCards()
         computer.displayComputersCards()
+        computer.rearrangeCards()
+        computer.rearrangeCards()
 
 
     elif  computer.t3 != [] and (computer.t3[len(computer.t3)-1].value == player.play[len(player.play)-1].value +1 or computer.t3[len(computer.t3)-1].value == player.play[len(player.play)-1].value -1 or (computer.t3[len(computer.t3)-1].value == 1  and player.play[len(player.play)-1].value == 13) or (computer.t3[len(computer.t3)-1].value == 13 and player.play[len(player.play)-1].value == 1)):
@@ -563,6 +691,8 @@ while run:
         computer.t3.pop()
         player.displayPlayersCards()
         computer.displayComputersCards()  
+        computer.rearrangeCards()
+        computer.rearrangeCards()
 
 
     elif  computer.t4 != [] and (computer.t4[len(computer.t4)-1].value == player.play[len(player.play)-1].value +1 or computer.t4[len(computer.t4)-1].value == player.play[len(player.play)-1].value -1 or (computer.t4[len(computer.t4)-1].value == 1 and player.play[len(player.play)-1].value == 13) or (computer.t4[len(computer.t4)-1].value == 13 and player.play[len(player.play)-1].value == 1)):
@@ -571,7 +701,9 @@ while run:
         player.play.append(computer.t4[len(computer.t4)-1])
         computer.t4.pop()
         player.displayPlayersCards()
-        computer.displayComputersCards() 
+        computer.displayComputersCards()
+        computer.rearrangeCards() 
+        computer.rearrangeCards()
 
 
     elif  computer.t5 != [] and (computer.t5[len(computer.t5)-1].value == player.play[len(player.play)-1].value +1 or computer.t5[len(computer.t5)-1].value == player.play[len(player.play)-1].value -1 or (computer.t5[len(computer.t5)-1].value == 1 and player.play[len(player.play)-1].value == 13) or (computer.t5[len(computer.t5)-1].value == 13 and player.play[len(player.play)-1].value == 1)):
@@ -581,6 +713,8 @@ while run:
         computer.t5.pop()
         player.displayPlayersCards()
         computer.displayComputersCards()
+        computer.rearrangeCards()
+        computer.rearrangeCards()
 
  
     elif  computer.t1 != [] and (computer.t1[0].value == computer.play[len(computer.play)-1].value +1 or computer.t1[0].value == computer.play[len(computer.play)-1].value -1 or (computer.t1[len(computer.t1)-1].value == 1 and computer.play[len(computer.play)-1].value == 13) or (computer.t1[len(computer.t1)-1].value == 13 and computer.play[len(computer.play)-1].value == 1)):
@@ -589,6 +723,8 @@ while run:
         computer.play.append(computer.t1[0])
         computer.t1.pop()
         computer.displayComputersCards()
+        computer.rearrangeCards()
+        computer.rearrangeCards()
 
 
     elif  computer.t2 != [] and (computer.t2[len(computer.t2)-1].value == computer.play[len(computer.play)-1].value +1 or computer.t2[len(computer.t2)-1].value == computer.play[len(computer.play)-1].value -1 or (computer.t2[len(computer.t2)-1].value == 1 and computer.play[len(computer.play)-1].value == 13) or (computer.t2[len(computer.t2)-1].value == 13 and computer.play[len(computer.play)-1].value == 1)):
@@ -597,6 +733,8 @@ while run:
         computer.play.append(computer.t2[len(computer.t2)-1])
         computer.t2.pop()
         computer.displayComputersCards()
+        computer.rearrangeCards()
+        computer.rearrangeCards()
 
 
     elif  computer.t3 != [] and (computer.t3[len(computer.t3)-1].value == computer.play[len(computer.play)-1].value +1 or computer.t3[len(computer.t3)-1].value == computer.play[len(computer.play)-1].value -1 or (computer.t3[len(computer.t3)-1].value == 1 and computer.play[len(computer.play)-1].value == 13) or (computer.t3[len(computer.t3)-1].value == 13 and computer.play[len(computer.play)-1].value == 1)):
@@ -605,6 +743,8 @@ while run:
         computer.play.append(computer.t3[len(computer.t3)-1])
         computer.t3.pop()
         computer.displayComputersCards()  
+        computer.rearrangeCards()
+        computer.rearrangeCards()
 
 
     elif  computer.t4 != [] and (computer.t4[len(computer.t4)-1].value == computer.play[len(computer.play)-1].value +1 or computer.t4[len(computer.t4)-1].value == computer.play[len(computer.play)-1].value -1 or (computer.t4[len(computer.t4)-1].value == 1 and computer.play[len(computer.play)-1].value == 13) or (computer.t4[len(computer.t4)-1].value == 13 and computer.play[len(computer.play)-1].value == 1)):
@@ -612,7 +752,9 @@ while run:
         pygame.time.wait(REACTION)
         computer.play.append(computer.t4[len(computer.t4)-1])
         computer.t4.pop()
-        computer.displayComputersCards() 
+        computer.displayComputersCards()
+        computer.rearrangeCards() 
+        computer.rearrangeCards()
 
 
     elif  computer.t2 != [] and (computer.t5[len(computer.t5)-1].value == computer.play[len(computer.play)-1].value +1 or computer.t5[len(computer.t5)-1].value == computer.play[len(computer.play)-1].value -1 or (computer.t5[len(computer.t5)-1].value == 1 and computer.play[len(computer.play)-1].value == 13) or (computer.t5[len(computer.t5)-1].value == 13 and computer.play[len(computer.play)-1].value == 1)):
@@ -621,13 +763,17 @@ while run:
         computer.play.append(computer.t5[len(computer.t5)-1])
         computer.t5.pop()
         computer.displayComputersCards()
+        computer.rearrangeCards()
+        computer.rearrangeCards()
     
     if player.canPlay(computer) == 0 and computer.canPlay(player) == 0:
-        print("Cant play BITCH!")
+        player.play.append(player.leftovers[0])
+        computer.play.append(computer.leftovers[0])
+        print("cant play")
 
     
     pygame.display.update()
 
-
+    
 pygame.quit()
 
